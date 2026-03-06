@@ -1,7 +1,7 @@
 # Build output
 dist/
 .astro/
-
+.vscode
 # Dependencies
 node_modules/
 
