@@ -1,35 +1,33 @@
 ---
-// 静态图片
-// Svg 组件
+import { Image } from 'astro:assets';
 import Svg from "@/components/Svg/Svg.astro";
-// 时间处理
 import { fmtTime } from "@/utils/index";
-// 获取用户配置数据
 import SITE_CONFIG from "@/config";
-const { Avatar, Author, Motto, WebSites, GoogleAds, AsideShow } = SITE_CONFIG;
-// 获取文章数据
+const { Avatar, Author, Motto, WebSites, AsideShow } = SITE_CONFIG;
 import { getCategories, getTags, getRecommendArticles, getCountInfo } from "@/utils/getPostInfo";
-// 获取数据统计
-// 分类列表
 const categories = getCategories();
-// 热门标签
 const tags = getTags().slice(0, 16);
-// 获取网站统计数据
 const CountInfo = getCountInfo();
-// 最新文章
 const recommendArticles = getRecommendArticles();
-// Google 广告组件
-import GoogleAd from "@/components/GoogleAd/GoogleAd.astro";
-// 侧边栏样式
 import "./Aside.less";
+
+// 导入头像图片用于优化
+import avatarImage from "@/assets/images/avatar.png";
 ---
 
 <aside class="vh-aside">
-	<!-- 头像块 -->
 	{
 		AsideShow.WebSitesShow && (
 			<section class="vh-aside-item user">
-				<img class="vh-aside-avatar" src="/assets/images/lazy-loading.webp" data-vh-lz-src={Avatar} alt={Author} />
+				<Image 
+					class="vh-aside-avatar" 
+					src={avatarImage} 
+					alt={`${Author}的头像`}
+					width={120}
+					height={120}
+					format="avif"
+					quality={80}
+				/>
 				<span class="vh-aside-auther">{Author}</span>
 				<p class="vh-aside-motto">{Motto}</p>
 				<section class="vh-aside-links">
@@ -114,7 +112,7 @@ import "./Aside.less";
 
 	<!-- 流量卡 -->
 	{
-		(
+		false && (
 			<section class="vh-aside-item adcard">
 				<h3>精品流量卡</h3>
 				<a class="vh-aside-adcard" href="https://h5.lot-ml.com/ProductEn/Index/548465d7349b6599" target="_blank" rel="noopener noreferrer">
@@ -141,16 +139,6 @@ import "./Aside.less";
 							</a>
 						))}
 					</div>
-				</section>
-			)
-		}
-
-		<!-- 谷歌广告块 -->
-		{
-			GoogleAds.ad_Client && GoogleAds.asideAD_Slot && (
-				<section class="vh-aside-item ad">
-					<h3>广而告之</h3>
-					<GoogleAd className="vh-aside-ad" slotID={GoogleAds.asideAD_Slot} />
 				</section>
 			)
 		}

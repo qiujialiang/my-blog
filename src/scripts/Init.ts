@@ -9,8 +9,6 @@ import codeInit from "@/scripts/Code";
 import videoInit from "@/scripts/Video";
 // 初始化音乐播放器
 import musicInit from "@/scripts/Music";
-// 初始化 LivePhoto
-import livePhotoInit from '@/scripts/LivePhoto'
 // 初始化BackTop组件
 import BackTopInitFn from "@/scripts/BackTop";
 // 搜索
@@ -31,12 +29,8 @@ import initTalking from "@/scripts/Talking";
 import { checkComment, commentInit } from "@/scripts/Comment";
 // 移动端侧边栏初始化
 import initMobileSidebar from "@/scripts/MobileSidebar";
-// Google 广告
-import GoogleAdInit from "@/scripts/GoogleAd";
 // Han Analytics 统计
 import HanAnalyticsInit from "@/scripts/HanAnalytics";
-//  谷歌 SEO 推送
-import SeoPushInit from "@/scripts/SeoPush";
 // SmoothScroll 滚动优化
 import SmoothScroll from "@/scripts/Smoothscroll";
 
@@ -59,8 +53,6 @@ const indexInit = async (only: boolean = true) => {
   codeInit();
   // 图片懒加载初始化
   vhLzImgInit();
-  // 初始化 LivePhoto
-  livePhotoInit();
   // 文章视频播放器初始化
   videoInit(videoList);
   // 文章音乐播放器初始化
@@ -71,10 +63,6 @@ const indexInit = async (only: boolean = true) => {
   initFriends();
   // 动态说说初始化
   initTalking();
-  // Google 广告
-  GoogleAdInit();
-  // 谷歌 SEO 推送
-  SeoPushInit();
   // 文章评论初始化
   checkComment() && commentInit(checkComment(), commentLIst)
   // Han Analytics 统计
@@ -108,6 +96,6 @@ export default () => {
     MusicList.forEach((i: any) => i.destroy());
     MusicList.length = 0;
   });
-  console.log("%c🌻 程序：Astro | 主题：vhAstro-Theme | 作者：Han | Github：https://github.com/uxiaohan/vhAstro-Theme 🌻", "color:#fff; background: linear-gradient(270deg, #18d7d3, #68b7dd, #8695e6, #986fee); padding: 8px 15px; border-radius: 8px");
-  console.log("%c\u521D\u59CB\u5316\u5B8C\u6BD5.", "color: #ffffff; background: #000; padding:5px");
+  console.log("%c🌻 欢迎来到 AEIOU 的博客 🌻", "color:#fff; background: linear-gradient(270deg, #18d7d3, #68b7dd, #8695e6, #986fee); padding: 8px 15px; border-radius: 8px");
+  console.log("%c初始化完毕.", "color: #ffffff; background: #000; padding:5px");
 }
