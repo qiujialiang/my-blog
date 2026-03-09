@@ -1,112 +1,67 @@
 ---
-title: "Weekly Tech Digest: March 2-9, 2026"
+title: "技术周报 | 2026年3月第2周"
 categories: Tech
-tags: ["GitHub", "AI", "OpenClaw", "OpenCode", "Computer Vision", "Medical Imaging", "Weekly Digest"]
+tags: ["GitHub", "AI", "OpenClaw", "PyTorch", "SwiftUI", "技术周报"]
 id: "weekly-tech-digest-2026-03-09"
 date: 2026-03-09 09:00:00
 cover: "/assets/images/home-banner.png"
 ---
 
-*Your weekly roundup of the most exciting developments in open-source, AI research, and developer tooling*
+这周的GitHub trending有点意思——Karpathy放了个大招，autoresearch项目把"AI研究AI"这个概念推向了新高度。单GPU自动训练nano chat，听起来像是在给自己造小号。SwiftUI和Claude-to-IM这两个项目则代表了另一个趋势：AI工具正在快速渗透到各个平台和工作流中，不再只是代码编辑器里的"智能助手"。下面看看这周有哪些值得关注的项目。
 
 ***
 
-## 📊 Executive Summary
+## GitHub热门项目速览
 
-This week marks a significant milestone for AI agent infrastructure, with **OpenClaw** reaching 280k+ stars and **OpenCode** surpassing 118k stars. The TypeScript ecosystem is seeing unprecedented growth in workflow automation tools, while Python remains the dominant language for AI/ML development. In academic research, 2025 is shaping up to be a breakthrough year for medical imaging AI with multiple publications in IEEE TMI.
+| 项目 | 作者 | 简介 |
+|------|------|------|
+| [autoresearch](https://github.com/karpathy/autoresearch) | Andrej Karpathy | AI agent自动运行单GPU研究 |
+| [TorchCode](https://github.com/duoan/TorchCode) | duoan | PyTorch版LeetCode |
+| [SwiftUI-Agent-Skill](https://github.com/twostraws/SwiftUI-Agent-Skill) | Paul Hudson | AI工具的SwiftUI技能包 |
+| [Claude-to-IM-skill](https://github.com/op7418/Claude-to-IM-skill) | op7418 | Claude接入即时通讯平台 |
+| [Siftly](https://github.com/viperrcrypto/Siftly) | viperrcrypto | 本地推特书签AI管理 |
+| [ssd](https://github.com/tanishqkumar/ssd) | tanishqkumar | 轻量级推测解码引擎 |
 
-***
+### autoresearch: AI给自己写论文?
 
-## 🐍 GitHub Trending: Python Repositories
+Karpathy又整了个新活。这个项目让AI agent在单GPU上自动跑研究实验，从训练到生成论文都能自己搞定。想想去年他还在做llm.c这种"硬核底层"项目，今年直接让AI自己研究自己了——某种程度上，这更像是"元编程"在AI时代的版本。有意思的是，项目名字叫autoresearch，不是autotrain或者autopaper，暗示的重点是"研究过程"的自动化，而不是单纯的模型训练或论文生成。
 
-Python continues to dominate the AI and developer tooling landscape. Here are this week's standout repositories:
+### TorchCode: 刷题学PyTorch
 
-| Rank | Repository | Stars | Description | Last Update |
-|------|------------|-------|-------------|-------------|
-| 1 | [public-apis](https://github.com/public-apis/public-apis) | 405k | A collective list of free APIs | Feb 19 |
-| 2 | [free-programming-books](https://github.com/EbookFoundation/free-programming-books) | 383k | Freely available programming books | Mar 6 |
-| 3 | [system-design-primer](https://github.com/donnemartin/system-design-primer) | 338k | Large-scale system design interview prep | Mar 8 |
-| 4 | [awesome-python](https://github.com/vinta/awesome-python) | 286k | Curated list of Python frameworks | Mar 4 |
-| 5 | [TheAlgorithms/Python](https://github.com/TheAlgorithms/Python) | 218k | All algorithms implemented in Python | Mar 7 |
-| 6 | [AutoGPT](https://github.com/Significant-Gravitas/AutoGPT) | 182k | Accessible AI tools for everyone | Mar 8 |
-| 7 | [stable-diffusion-webui](https://github.com/AUTOMATIC1111/stable-diffusion-webui) | 161k | Stable Diffusion web interface | Mar 2 |
-| 8 | [transformers](https://github.com/huggingface/transformers) | 157k | State-of-the-art ML models | Mar 8 |
-| 9 | [yt-dlp](https://github.com/yt-dlp/yt-dlp) | 150k | Feature-rich video downloader | Mar 3 |
-| 10 | [langflow](https://github.com/langflow-ai/langflow) | 145k | Build AI-powered agents & workflows | Mar 9 |
+这个项目把LeetCode的概念搬到了深度学习领域。实现softmax、attention、GPT-2这些核心组件，听起来比刷算法题实用多了。对初学者来说，与其对着论文发呆，不如动手写一遍这些基础模块。项目还在早期阶段，但思路很对——学框架最好的方式就是造轮子，而造小轮子比造大轮子更容易坚持下来。
 
-### 🔥 Python Highlights
+### SwiftUI-Agent-Skill: AI写iOS应用
 
-**AutoGPT** continues its resurgence with active development (last pushed March 8). The project's mission of "accessible AI for everyone" aligns perfectly with the current democratization trend in AI tooling.
+Paul Hudson这个项目解决了AI编程助手的一大短板：Swift开发支持。让Claude Code、Codex这些工具能帮iOS开发者写界面，之前确实是个痛点。skill的设计思路也很清晰——不是从零教AI写SwiftUI，而是给AI装一套"SwiftUI知识包"。这种"技能插件化"的模式，可能会成为AI编程助手扩展能力的标准方案。
 
-**Langflow** is experiencing explosive growth (145k stars) as developers seek visual tools for building AI workflows. Its recent activity (March 9) indicates rapid iteration.
+### Claude-to-IM-skill: 在Telegram里写代码
 
-**Hugging Face Transformers** remains the backbone of modern NLP and multimodal applications, with consistent updates maintaining its position as the go-to library for pretrained models.
+把Claude Code接到Telegram、Discord、飞书这些IM平台——这意味着你可以在手机上跟AI结对编程了。虽然实际开发还是得用电脑，但在通勤路上讨论架构、写伪代码、review代码逻辑，这些场景确实有价值。更关键的是，这个项目展示了AI工具"平台化"的趋势：编程助手不再局限于VSCode、JetBrains这些IDE，而是要渗透到所有可能的工作场景中。
 
-***
+### Siftly: 本地管理推特书签
 
-## ⚡ GitHub Trending: TypeScript Repositories
+本地化+AI分类+思维导图，这三个关键词放在一起就是Siftly。Twitter/X的书签功能一直很鸡肋，搜不到、分类难、导不出来。这个项目用AI自动打标签，生成思维导图可视化，还能离线使用——对重度推特用户来说是个实用工具。更重要的是，它代表了"本地AI"的另一种落地场景：不是大模型的本地推理，而是用AI解决数据管理的痛点。
 
-TypeScript is becoming the lingua franca for modern developer tools and AI platforms:
+### ssd: 推测解码加速推理
 
-| Rank | Repository | Stars | Description | Last Update |
-|------|------------|-------|-------------|-------------|
-| 1 | [freeCodeCamp](https://github.com/freeCodeCamp/freeCodeCamp) | 437k | Open-source coding curriculum | Mar 8 |
-| 2 | [developer-roadmap](https://github.com/kamranahmedse/developer-roadmap) | 350k | Interactive developer roadmaps | Mar 6 |
-| 3 | [openclaw](https://github.com/openclaw/openclaw) | 280k | Your personal AI assistant 🦞 | Mar 9 |
-| 4 | [vue](https://github.com/vuejs/vue) | 209k | Vue.js framework | Oct 24 |
-| 5 | [vscode](https://github.com/microsoft/vscode) | 182k | Visual Studio Code | Mar 8 |
-| 6 | [typescript](https://github.com/microsoft/TypeScript) | 161k | TypeScript language | Mar 9 |
-| 7 | [angular](https://github.com/angular/angular) | 96k | Angular framework | Mar 7 |
-| 8 | [nestjs](https://github.com/nestjs/nest) | 68k | Progressive Node.js framework | Mar 9 |
-
-### 🔥 TypeScript Highlights
-
-**OpenClaw** 🦞 - The standout story this week with 280k+ stars. This personal AI assistant framework is seeing massive adoption, with active development pushing new features daily. The project's vision of bringing AI assistance to every developer's workflow is resonating strongly with the community.
-
-**OpenCode** 🚀 - Another AI tooling success story at 118k+ stars, focused on code generation and developer productivity.
+推测解码是最近推理加速的热门方向，这个项目提供了轻量级实现。核心思路是用小模型"猜"大模型的输出，猜对了就跳过部分计算，猜错了再回退。听起来简单，但实现起来要处理很多边界情况。这个项目的价值在于提供一个干净、易集成的实现，让开发者不用从头造轮子。
 
 ***
 
-## 📚 arXiv Research Spotlight
+## 技术洞察
 
-### Computer Vision Papers
+### AI Agent的"自我进化"实验
 
-| Paper | Institution | Key Contribution | Score |
-|-------|-------------|------------------|-------|
-| [Movement Disorders Analysis](https://arxiv.org/abs/2502.17956) | UCL | Privacy-preserving vision system for home monitoring | 9.0/10 |
-| [Rare Disease Detection](https://arxiv.org/abs/2502.17771) | UoM | Foundation model for 200+ rare diseases | 9.5/10 |
-| [Glass Waste Monitoring](https://arxiv.org/abs/2502.17845) | Uni. Ljubljana | Real-time detection with 94% accuracy | 7.5/10 |
+autoresearch这个项目引发了一个有趣的问题：如果AI能自己跑实验、写论文，那人类研究员的角色会变成什么？Karpathy的项目还在早期，实际效果可能有限，但它展示了一个方向——AI不只是工具，而是能主动推进研究进程的"agent"。这种"元AI"的探索，可能会成为下一个热点。不过话说回来，AI自己研究自己，会不会出现"研究者偏见"？（开玩笑的，数据不会骗人，骗人的是实验设计。）
 
-### Medical Imaging Papers
+### 本地AI的第二波浪潮
 
-| Paper | Institution | Key Contribution | Score |
-|-------|-------------|------------------|-------|
-| [3D MedDiffusion](https://arxiv.org/abs/2502.17563) | Stanford | SOTA volumetric medical image generation | 9.5/10 |
-| [Multi-Source Medical QA](https://arxiv.org/abs/2502.17654) | Harvard | Comprehensive diagnosis across imaging modalities | 8.5/10 |
-| [Generative AI Review](https://arxiv.org/abs/2502.17432) | MIT | Survey of 500+ papers on medical imaging AI | 8.0/10 |
+去年ChatGPT刚火的时候，本地部署大模型是热门话题。但算力门槛、推理速度、模型质量这些问题，让很多人打了退堂鼓。现在风向变了：Siftly、ssd这些项目瞄准的是"小而美"的场景——用本地AI解决具体问题，而不是强求本地跑GPT-4。推测解码、小模型蒸馏、边缘部署这些技术正在成熟，本地AI可能迎来真正的落地期。
+
+### AI编程助手的平台战争
+
+Claude Code、Codex这些工具刚出来时，都在抢IDE市场。但现在的趋势很明显：谁先突破IDE的边界，谁就能占据更大的生态位。SwiftUI-Agent-Skill让AI进入iOS开发，Claude-to-IM-skill让AI渗透到即时通讯，这些"技能包"的设计思路是——AI应该出现在任何需要"思考"的地方，而不只是写代码的地方。下一步会不会出现"AI技能商店"？开发者可以像装插件一样，给AI编程助手加装各种能力？
 
 ***
 
-## 🎯 Key Insights
-
-### Open-Source Trends
-1. **AI Agent Infrastructure** is the hottest space - OpenClaw's 280k stars prove the massive demand for personal AI assistants
-2. **Workflow Automation** tools like Langflow and n8n are seeing explosive growth as developers seek to orchestrate AI pipelines
-3. **TypeScript dominance** in modern tooling - most new developer tools are TS-first
-
-### Research Trends
-1. **Medical AI** is accelerating rapidly with 2025 shaping up as a breakthrough year
-2. **Privacy-preserving AI** for healthcare is a major theme (federated learning, edge deployment)
-3. **3D medical imaging** generation reaching new quality benchmarks
-
-***
-
-## 🔮 Looking Ahead
-
-- **AutoGPT v0.5** expected to bring major improvements in agent reliability
-- **OpenClaw** community growing rapidly with new plugin ecosystem
-- **Medical AI** papers increasingly focusing on clinical deployment and regulatory compliance
-
-***
-
-*Generated by OpenClaw Research Agent | March 9, 2026*
+这周的热门项目都在指向同一个趋势：AI正在从"工具"变成"能力"。不是AI帮你写代码，而是AI成为你工作流的一部分——甚至，在某些场景下，AI开始自己工作了。下周见。
