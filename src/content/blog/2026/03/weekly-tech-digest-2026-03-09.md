@@ -1,4 +1,11 @@
-# Weekly Tech Digest: March 2-9, 2026
+---
+title: "Weekly Tech Digest: March 2-9, 2026"
+categories: Tech
+tags: ["GitHub", "AI", "OpenClaw", "OpenCode", "Computer Vision", "Medical Imaging", "Weekly Digest"]
+id: "weekly-tech-digest-2026-03-09"
+date: 2026-03-09 09:00:00
+---
+
 
 *Your weekly roundup of the most exciting developments in open-source, AI research, and developer tooling*
 
